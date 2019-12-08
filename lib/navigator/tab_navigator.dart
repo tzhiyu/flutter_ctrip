@@ -28,9 +28,7 @@ class _TabNavigatorState extends State<TabNavigator> {
         controller: _controller,
         children: <Widget>[
           HomePage(),
-          SearchPage(
-            hideLeft: true,
-          ),
+          SearchPage(hideLeft: true,),
           TravelPage(),
           MyPage(),
         ],
@@ -48,32 +46,67 @@ class _TabNavigatorState extends State<TabNavigator> {
         type: BottomNavigationBarType.fixed,
         items: [
           // 主页按钮
-          _bottomItem('首页',Icons.home,0),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: _defaultColor,
+              ),
+              activeIcon: Icon(
+                Icons.home,
+                color: _activeColor,
+              ),
+              title: Text(
+                '首页',
+                style: TextStyle(
+                    color: _currentIndex != 0 ? _defaultColor : _activeColor),
+              )),
           // 搜索按钮
-          _bottomItem('搜索',Icons.search,1),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
+                color: _defaultColor,
+              ),
+              activeIcon: Icon(
+                Icons.search,
+                color: _activeColor,
+              ),
+              title: Text(
+                '搜索',
+                style: TextStyle(
+                    color: _currentIndex != 1 ? _defaultColor : _activeColor),
+              )),
           // travel按钮
-          _bottomItem('Travel',Icons.camera_alt,2),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.camera_alt,
+                color: _defaultColor,
+              ),
+              activeIcon: Icon(
+                Icons.camera_alt,
+                color: _activeColor,
+              ),
+              title: Text(
+                'Travel',
+                style: TextStyle(
+                    color: _currentIndex != 2 ? _defaultColor : _activeColor),
+              )),
           // 我的按钮
-          _bottomItem('我的',Icons.account_circle,3),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.account_circle,
+                color: _defaultColor,
+              ),
+              activeIcon: Icon(
+                Icons.account_circle,
+                color: _activeColor,
+              ),
+              title: Text(
+                '我的',
+                style: TextStyle(
+                    color: _currentIndex != 3 ? _defaultColor : _activeColor),
+              )),
         ],
       ),
     );
-  }
-
-  _bottomItem(String title, IconData icon, int index) {
-    return BottomNavigationBarItem(
-        icon: Icon(
-          icon,
-          color: _defaultColor,
-        ),
-        activeIcon: Icon(
-          icon,
-          color: _activeColor,
-        ),
-        title: Text(
-          title,
-          style: TextStyle(
-              color: _currentIndex != index ? _defaultColor : _activeColor),
-        ));
   }
 }

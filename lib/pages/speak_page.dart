@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ctrip/pages/search_page.dart';
 import 'package:flutter_ctrip/plugin/asr_manager.dart';
-import 'package:flutter_ctrip/util/navigator_util.dart';
 
 /// 语音识别界面
 class SpeakPage extends StatefulWidget {
@@ -73,11 +72,12 @@ class _SpeakPageState extends State<SpeakPage>
         // 1. 首先关闭当前页面(非常重要)
         Navigator.pop(context);
         // 2. 再跳转
-        NavigatorUtil.push(
+        Navigator.push(
             context,
-            SearchPage(
-              keyword: speakResult,
-            ));
+            MaterialPageRoute(
+                builder: (context) => SearchPage(
+                      keyword: speakResult,
+                    )));
         print("--------" + text);
       }
     }).catchError((e) {
