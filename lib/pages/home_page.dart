@@ -17,6 +17,7 @@ import 'package:flutter_ctrip/widget/search_bar.dart';
 import 'package:flutter_ctrip/widget/sub_nav.dart';
 import 'package:flutter_ctrip/widget/webview.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 
 // APPBAR_SCROLL_OFFSET 滚动最大距离
 const APPBAR_SCROLL_OFFSET = 100;
@@ -54,6 +55,10 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _handleRefresh();
+    // 关闭启动屏
+    Future.delayed(Duration(milliseconds: 3000),(){
+      FlutterSplashScreen.hide();
+    });
   }
 
   _onScroll(offset) {
